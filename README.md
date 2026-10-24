@@ -12,6 +12,7 @@ A free, browser-based pseudocode editor using [pseudocode.js](https://github.com
 - Copy embeddable HTML
 - English / Traditional Chinese interface
 - Light / dark mode
+- Editable Algorithm caption number (saved locally)
 - Browser-side processing; no pseudocode is uploaded to a server
 
 ## Run locally
@@ -27,6 +28,8 @@ Then open `http://localhost:8080`.
 ## Deploy
 
 This is a static site: host the contents of `dist/` on GitHub Pages or any static hosting provider. Dependencies currently load through pinned CDN URLs.
+
+The included GitHub Actions workflow deploys the `dist/` directory as a GitHub Pages mirror on pushes to `main`. In the repository settings, choose **Pages → Build and deployment → Source: GitHub Actions** to enable it.
 
 ## Tests
 
