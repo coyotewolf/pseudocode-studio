@@ -85,7 +85,7 @@
  function setTheme(next){document.documentElement.dataset.theme=next;$('theme').textContent=next==='dark'?'☀ Light':'☾ Dark';$('theme').setAttribute('aria-pressed',next==='dark');localStorage.setItem('pseudo-theme',next)}
  const escapeHtml=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const algorithmNumber=()=>Math.min(9999,Math.max(1,parseInt($('algorithmNumber').value,10)||1));
- const opts=()=>({lineNumber:$('lineNo').checked,scopeLines:$('scope').checked,noEnd:$('noEnd').checked,captionCount:algorithmNumber()});
+ const opts=()=>({lineNumber:$('lineNo').checked,scopeLines:$('scope').checked,noEnd:$('noEnd').checked,captionCount:algorithmNumber()-1});
  const status=(msg,err=false)=>{$('status').textContent=msg;$('status').className='status'+(err?' error':'')};
  const COMMANDS=new Set(['Require','Ensure','State','If','Else','ElsIf','EndIf','For','ForAll','EndFor','While','EndWhile','Repeat','Until','Procedure','EndProcedure','Function','EndFunction','Return','Print','Call','To','And','Or','Not','Comment']);
  function readBraced(text,start){if(text[start]!=='{')return null;let depth=0;for(let i=start;i<text.length;i++){if(text[i]==='{')depth++;else if(text[i]==='}'&&!--depth)return {value:text.slice(start+1,i),end:i+1}}return null}
